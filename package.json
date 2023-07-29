@@ -10,7 +10,7 @@
   "module": "./dist/esm/index.js",
   "typings": "./dist/esm/index.d.ts",
   "bin": {
-    "typesgen": "./dist/cjs/bin/index.js.js"
+    "typesgen": "./dist/cjs/bin/index.js"
   },
   "exports": {
     ".": {
