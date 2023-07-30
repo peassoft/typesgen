@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { parseCliOptions } from '../modules/cli-options/index.js';
 import { createAppInnerConfig } from '../modules/app-config/index.js';
 import { parse } from '../parts/parser/index.js';
