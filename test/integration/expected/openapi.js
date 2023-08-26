@@ -500,6 +500,18 @@ module.exports = {
           'bar',
         ],
       },
+      prop40: {
+        type: 'array',
+        required: true,
+        nullable: false,
+        items: {
+          type: 'string',
+          enum: [
+            'foo',
+            'bar',
+          ],
+        },
+      },
     },
   },
 };

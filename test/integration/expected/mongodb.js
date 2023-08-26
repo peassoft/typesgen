@@ -43,6 +43,7 @@ module.exports = {
           'prop37',
           'prop38',
           'prop39',
+          'prop40',
         ],
         properties: {
           prop1: {
@@ -233,6 +234,15 @@ module.exports = {
               'foo',
               'bar',
             ],
+          },
+          prop40: {
+            bsonType: 'array',
+            items: {
+              enum: [
+                'foo',
+                'bar',
+              ],
+            },
           },
         },
       },

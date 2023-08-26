@@ -423,5 +423,12 @@ module.exports = {
     prop39: jdv
       .string()
       .required('TestEntity1.prop39 is required'),
+    prop40: jdv
+      .array({
+        schema: jdv
+          .string(),
+        msg: 'TestEntity1.prop40 must be an array',
+      })
+      .required('TestEntity1.prop40 is required'),
   }),
 };
