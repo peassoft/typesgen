@@ -4,7 +4,7 @@
   "exclude": ["**/*.test.ts"],
   "compilerOptions": {
     "outDir": "./dist/cjs",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "declaration": true,
     "declarationMap": true
   }
