@@ -215,7 +215,9 @@ export default class Generator {
 
     const { type, referredEntity } = this.#getTypeInfo(arrayDescriptor.items);
 
-    result += `\n${spaces(indent)}bsonType: '${type}',`;
+    if (type !== 'enum') {
+      result += `\n${spaces(indent)}bsonType: '${type}',`;
+    }
 
     switch (arrayDescriptor.items.type) {
       case ObjectMemberType.Object:
@@ -238,15 +240,15 @@ export default class Generator {
 
         switch (referredEntity.type) {
           case EntityType.Object:
-            result += `\n${spaces(indent + 2)}properties: {`;
-            result += this.#generateObjectProps(referredEntity.members, indent + 4);
-            result += `\n${spaces(indent + 2)}},`;
+            result += `\n${spaces(indent)}properties: {`;
+            result += this.#generateObjectProps(referredEntity.members, indent + 2);
+            result += `\n${spaces(indent)}},`;
             break;
 
           case EntityType.Enum:
-            result += `\n${spaces(indent + 2)}enum: [`;
-            result += this.#generateEnumMembers(referredEntity.members, indent + 4);
-            result += `\n${spaces(indent + 2)}],`;
+            result += `\n${spaces(indent)}enum: [`;
+            result += this.#generateEnumMembers(referredEntity.members, indent + 2);
+            result += `\n${spaces(indent)}],`;
             break;
         }
 

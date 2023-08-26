@@ -429,6 +429,16 @@ describe('e2e tests', () => {
         type: ObjectMemberType.TypeReference,
         typeName: 'MyEnum',
       },
+      {
+        name: 'prop40',
+        required: true,
+        nullable: false,
+        type: ObjectMemberType.Array,
+        items: {
+          type: ObjectMemberType.TypeReference,
+          typeName: 'MyEnum',
+        },
+      },
     ]),
   });
 
@@ -531,7 +541,7 @@ describe('e2e tests', () => {
   const mongodbExpected = fs.readFileSync(path.join(expectedPath, 'mongodb.js'), 'utf-8');
   const mongodbActual = fs.readFileSync(innerConfig.mongodbDestAbsPath, 'utf-8');
 
-  it('should correctly generate OpenAPI models', () => {
+  it('should correctly generate MongoDB validation schemas', () => {
     expect(mongodbActual.trim()).toBe(mongodbExpected.trim());
   });
 

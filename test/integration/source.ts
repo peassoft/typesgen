@@ -49,6 +49,7 @@ export type TestEntity1 = {
   prop37: Record<string, string> | null;
   prop38: Record<string, string>[];
   prop39: MyEnum | null;
+  prop40: MyEnum[];
 };
 
 /** jsdoc for TestEntity2 */
