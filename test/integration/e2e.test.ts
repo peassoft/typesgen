@@ -439,6 +439,16 @@ describe('e2e tests', () => {
           typeName: 'MyEnum',
         },
       },
+      {
+        name: 'prop41',
+        required: true,
+        nullable: false,
+        type: ObjectMemberType.Array,
+        items: {
+          type: ObjectMemberType.TypeReference,
+          typeName: 'TestEntity3',
+        },
+      },
     ]),
   });
 
@@ -495,6 +505,26 @@ describe('e2e tests', () => {
             typeName: 'MyEnum',
           },
         ]),
+      },
+    ]),
+  });
+
+  expectedEntities.add({
+    name: 'TestEntity3',
+    type: EntityType.Object,
+    public: false,
+    members: new Set<ObjectMember>([
+      {
+        name: 'foo',
+        nullable: false,
+        required: true,
+        type: ObjectMemberType.String,
+      },
+      {
+        name: 'bar',
+        nullable: false,
+        required: false,
+        type: ObjectMemberType.Number,
       },
     ]),
   });

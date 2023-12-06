@@ -31,14 +31,14 @@
     "node": ">=18"
   },
   "scripts": {
-    "dev:all": "ts-node --esm ./dev/index.ts -s ./dev/source.ts -d ./dev/dest",
-    "dev:openapi": "ts-node --esm ./dev/index.ts -s ./dev/source.ts -o ./dev/dest/openapi.js",
-    "dev:mongodb": "ts-node --esm ./dev/index.ts -s ./dev/source.ts -o ./dev/dest/mongodb.js",
-    "dev:jdv": "ts-node --esm ./dev/index.ts -s ./dev/source.ts -o ./dev/dest/jdv.js",
+    "dev:all": "tsx ./dev/index.ts -s ./dev/source.ts -d ./dev/dest",
+    "dev:openapi": "tsx ./dev/index.ts -s ./dev/source.ts -o ./dev/dest/openapi.js",
+    "dev:mongodb": "tsx ./dev/index.ts -s ./dev/source.ts -m ./dev/dest/mongodb.js",
+    "dev:jdv": "tsx ./dev/index.ts -s ./dev/source.ts -j ./dev/dest/jdv.js",
     "test": "eslint ./ && npm run tsc && NODE_OPTIONS=--experimental-vm-modules jest ./src",
     "test:integration": "NODE_OPTIONS=--experimental-vm-modules jest ./test/integration",
     "tsc": "tsc --noEmit",
-    "build": "rm -rf dist && tsc -p tsconfig-cjs.json &&tsc -p tsconfig-esm.json && bash fixup.sh && api-extractor run --local --verbose"
+    "build": "rm -rf dist && tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json && bash fixup.sh && api-extractor run --local --verbose"
   },
   "jest": {
     "verbose": false,
@@ -62,14 +62,14 @@
     }
   },
   "devDependencies": {
-    "@memnrev/eslint-config": "^0.3.1",
+    "@memnrev/eslint-config": "^0.4.0",
     "@microsoft/api-extractor": "^7.36.3",
     "@types/jest": "^29.4.0",
-    "@types/node": "^18.11.9",
+    "@types/node": "^20.10.3",
     "eslint": "^8.35.0",
     "jest": "^29.4.3",
     "ts-jest": "^29.0.5",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.6.2",
     "typescript": "^5.1.6"
   },
   "dependencies": {

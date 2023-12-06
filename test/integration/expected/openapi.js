@@ -241,54 +241,54 @@ module.exports = {
           type: 'array',
           items: {
             type: 'object',
-              properties: {
-                prop1: {
-                  type: 'object',
-                  description: 'jsdoc for prop1',
-                  required: true,
-                  nullable: false,
-                  properties: {
-                    p1: {
-                      type: 'number',
-                      format: 'double',
-                      required: true,
-                      nullable: false,
+            properties: {
+              prop1: {
+                type: 'object',
+                description: 'jsdoc for prop1',
+                required: true,
+                nullable: false,
+                properties: {
+                  p1: {
+                    type: 'number',
+                    format: 'double',
+                    required: true,
+                    nullable: false,
+                  },
+                  p2: {
+                    type: 'array',
+                    required: false,
+                    nullable: true,
+                    items: {
+                      type: 'boolean',
                     },
-                    p2: {
-                      type: 'array',
-                      required: false,
-                      nullable: true,
-                      items: {
-                        type: 'boolean',
-                      },
-                    },
-                    p3: {
-                      type: 'array',
-                      required: true,
-                      nullable: false,
-                      items: {
-                        type: 'object',
-                        properties: {
-                          p4: {
-                            type: 'string',
-                            required: true,
-                            nullable: false,
-                          },
+                  },
+                  p3: {
+                    type: 'array',
+                    required: true,
+                    nullable: false,
+                    items: {
+                      type: 'object',
+                      properties: {
+                        p4: {
+                          type: 'string',
+                          required: true,
+                          nullable: false,
                         },
                       },
                     },
-                    p5: {
-                      type: 'string',
-                      required: true,
-                      nullable: false,
-                      enum: [
-                        'foo',
-                        'bar',
-                      ],
-                    },
+                  },
+                  p5: {
+                    type: 'string',
+                    required: true,
+                    nullable: false,
+                    enum: [
+                      'foo',
+                      'bar',
+                    ],
                   },
                 },
               },
+            },
           },
         },
       },
@@ -510,6 +510,27 @@ module.exports = {
             'foo',
             'bar',
           ],
+        },
+      },
+      prop41: {
+        type: 'array',
+        required: true,
+        nullable: false,
+        items: {
+          type: 'object',
+          properties: {
+            foo: {
+              type: 'string',
+              required: true,
+              nullable: false,
+            },
+            bar: {
+              type: 'number',
+              format: 'double',
+              required: false,
+              nullable: false,
+            },
+          },
         },
       },
     },
