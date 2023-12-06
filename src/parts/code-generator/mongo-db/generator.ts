@@ -240,6 +240,13 @@ export default class Generator {
 
         switch (referredEntity.type) {
           case EntityType.Object:
+            result += `\n${spaces(indent)}required: [`;
+
+            for (const prop of this.#getRequiredProps(referredEntity.members)) {
+              result += `\n${spaces(indent + 2)}'${prop}',`;
+            }
+
+            result += `\n${spaces(indent)}],`;
             result += `\n${spaces(indent)}properties: {`;
             result += this.#generateObjectProps(referredEntity.members, indent + 2);
             result += `\n${spaces(indent)}},`;

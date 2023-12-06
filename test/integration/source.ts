@@ -50,6 +50,7 @@ export type TestEntity1 = {
   prop38: Record<string, string>[];
   prop39: MyEnum | null;
   prop40: MyEnum[];
+  prop41: TestEntity3[];
 };
 
 /** jsdoc for TestEntity2 */
@@ -64,6 +65,11 @@ type TestEntity2 = {
     p5: MyEnum;
   };
 }
+
+type TestEntity3 = {
+  foo: string;
+  bar?: number;
+};
 
 /** Description for MyEnum */
 export enum MyEnum {

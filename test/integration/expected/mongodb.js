@@ -44,6 +44,7 @@ module.exports = {
           'prop38',
           'prop39',
           'prop40',
+          'prop41',
         ],
         properties: {
           prop1: {
@@ -242,6 +243,23 @@ module.exports = {
                 'foo',
                 'bar',
               ],
+            },
+          },
+          prop41: {
+            bsonType: 'array',
+            items: {
+              bsonType: 'object',
+              required: [
+                'foo',
+              ],
+              properties: {
+                foo: {
+                  bsonType: 'string',
+                },
+                bar: {
+                  bsonType: 'double',
+                },
+              },
             },
           },
         },

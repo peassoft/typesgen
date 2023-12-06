@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Required fields array was not generated for mongodb validation scheme for arrays of reference types.
+
 ## [0.1.4] - 2023-08-26
 
 ### Fixed
