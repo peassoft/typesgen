@@ -14,10 +14,12 @@ module.exports = {
       .required('TestEntity1.prop3 is required'),
     prop4: jdv
       .string()
-      .required('TestEntity1.prop4 is required'),
+      .required('TestEntity1.prop4 is required')
+      .nullable(),
     prop5: jdv
       .boolean()
-      .required('TestEntity1.prop5 is required'),
+      .required('TestEntity1.prop5 is required')
+      .nullable(),
     prop6: jdv
       .array({
         schema: jdv
@@ -37,14 +39,16 @@ module.exports = {
           .boolean(),
         msg: 'TestEntity1.prop8 must be an array',
       })
-      .required('TestEntity1.prop8 is required'),
+      .required('TestEntity1.prop8 is required')
+      .nullable(),
     prop9: jdv
       .array({
         schema: jdv
           .boolean(),
         msg: 'TestEntity1.prop9 must be an array',
       })
-      .required('TestEntity1.prop9 is required'),
+      .required('TestEntity1.prop9 is required')
+      .nullable(),
     prop10: jdv
       .object().keys({
         prop1: jdv
@@ -57,7 +61,8 @@ module.exports = {
                 schema: jdv
                   .boolean(),
                 msg: 'TestEntity1.prop10.prop1.p2 must be an array',
-              }),
+              })
+              .nullable(),
             p3: jdv
               .array({
                 schema: jdv
@@ -158,7 +163,8 @@ module.exports = {
                     schema: jdv
                       .boolean(),
                     msg: 'TestEntity1.prop17[value].prop1.p2 must be an array',
-                  }),
+                  })
+                  .nullable(),
                 p3: jdv
                   .array({
                     schema: jdv
@@ -197,7 +203,8 @@ module.exports = {
                         schema: jdv
                           .boolean(),
                         msg: 'TestEntity1.prop18[value][i].prop1.p2 must be an array',
-                      }),
+                      })
+                      .nullable(),
                     p3: jdv
                       .array({
                         schema: jdv
@@ -406,7 +413,8 @@ module.exports = {
           .string(),
         msg: 'TestEntity1.prop37 must be a record',
       })
-      .required('TestEntity1.prop37 is required'),
+      .required('TestEntity1.prop37 is required')
+      .nullable(),
     prop38: jdv
       .array({
         schema: jdv
@@ -422,7 +430,8 @@ module.exports = {
       .required('TestEntity1.prop38 is required'),
     prop39: jdv
       .string()
-      .required('TestEntity1.prop39 is required'),
+      .required('TestEntity1.prop39 is required')
+      .nullable(),
     prop40: jdv
       .array({
         schema: jdv
