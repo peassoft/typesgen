@@ -125,6 +125,10 @@ export default class Generator {
         result += `\n${spaces(indent + 4)}.required('${localPath} is required')`;
       }
 
+      if (prop.nullable) {
+        result += `\n${spaces(indent + 4)}.nullable()`;
+      }
+
       result += ',';
     }
 
