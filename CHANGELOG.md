@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- [BREAKING] Generation of Jdv validation rules switched to use of `@peassoft/jdv` format.
+
 ## [0.2.0] - 2024-11-17
 
 ### Added

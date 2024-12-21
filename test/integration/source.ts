@@ -64,7 +64,7 @@ type TestEntity2 = {
     }[];
     p5: MyEnum;
   };
-}
+};
 
 type TestEntity3 = {
   foo: string;
