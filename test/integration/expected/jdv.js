@@ -1,23 +1,21 @@
-'use strict';
+import jdv from '@peassoft/jdv';
 
-const jdv = require('js-data-validator');
-
-module.exports = {
-  TestEntity1: jdv.object().keys({
+export default {
+  TestEntity1: jdv.object('TestEntity1 must be an object').keys({
     prop1: jdv
       .number('TestEntity1.prop1 must be a number')
       .required('TestEntity1.prop1 is required'),
     prop2: jdv
-      .string(),
+      .string('TestEntity1.prop2 must be a string'),
     prop3: jdv
-      .boolean()
+      .boolean('TestEntity1.prop3 must be a boolean')
       .required('TestEntity1.prop3 is required'),
     prop4: jdv
-      .string()
+      .string('TestEntity1.prop4 must be a string')
       .required('TestEntity1.prop4 is required')
       .nullable(),
     prop5: jdv
-      .boolean()
+      .boolean('TestEntity1.prop5 must be a boolean')
       .required('TestEntity1.prop5 is required')
       .nullable(),
     prop6: jdv
@@ -30,13 +28,13 @@ module.exports = {
     prop7: jdv
       .array({
         schema: jdv
-          .string(),
+          .string('TestEntity1.prop7[i] must be a string'),
         msg: 'TestEntity1.prop7 must be an array',
       }),
     prop8: jdv
       .array({
         schema: jdv
-          .boolean(),
+          .boolean('TestEntity1.prop8[i] must be a boolean'),
         msg: 'TestEntity1.prop8 must be an array',
       })
       .required('TestEntity1.prop8 is required')
@@ -44,38 +42,38 @@ module.exports = {
     prop9: jdv
       .array({
         schema: jdv
-          .boolean(),
+          .boolean('TestEntity1.prop9[i] must be a boolean'),
         msg: 'TestEntity1.prop9 must be an array',
       })
       .required('TestEntity1.prop9 is required')
       .nullable(),
     prop10: jdv
-      .object().keys({
+      .object('TestEntity1.prop10 must be an object').keys({
         prop1: jdv
-          .object().keys({
+          .object('TestEntity1.prop10.prop1 must be an object').keys({
             p1: jdv
               .number('TestEntity1.prop10.prop1.p1 must be a number')
               .required('TestEntity1.prop10.prop1.p1 is required'),
             p2: jdv
               .array({
                 schema: jdv
-                  .boolean(),
+                  .boolean('TestEntity1.prop10.prop1.p2[i] must be a boolean'),
                 msg: 'TestEntity1.prop10.prop1.p2 must be an array',
               })
               .nullable(),
             p3: jdv
               .array({
                 schema: jdv
-                  .object().keys({
+                  .object('TestEntity1.prop10.prop1.p3[i] must be an object').keys({
                     p4: jdv
-                      .string()
+                      .string('TestEntity1.prop10.prop1.p3[i].p4 must be a string')
                       .required('TestEntity1.prop10.prop1.p3[i].p4 is required'),
                   }),
                 msg: 'TestEntity1.prop10.prop1.p3 must be an array',
               })
               .required('TestEntity1.prop10.prop1.p3 is required'),
             p5: jdv
-              .string()
+              .string('TestEntity1.prop10.prop1.p5 must be a string')
               .required('TestEntity1.prop10.prop1.p5 is required'),
           })
           .required('TestEntity1.prop10.prop1 is required'),
@@ -84,16 +82,16 @@ module.exports = {
     prop11: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop11[key] must be a string'),
         schemaForValue: jdv
-          .string(),
+          .string('TestEntity1.prop11[value] must be a string'),
         msg: 'TestEntity1.prop11 must be a record',
       })
       .required('TestEntity1.prop11 is required'),
     prop12: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop12[key] must be a string'),
         schemaForValue: jdv
           .number('TestEntity1.prop12[value] must be a number'),
         msg: 'TestEntity1.prop12 must be a record',
@@ -102,20 +100,20 @@ module.exports = {
     prop13: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop13[key] must be a string'),
         schemaForValue: jdv
-          .boolean(),
+          .boolean('TestEntity1.prop13[value] must be a boolean'),
         msg: 'TestEntity1.prop13 must be a record',
       })
       .required('TestEntity1.prop13 is required'),
     prop14: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop14[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
-              .string(),
+              .string('TestEntity1.prop14[value][i] must be a string'),
             msg: 'TestEntity1.prop14[value] must be an array',
           }),
         msg: 'TestEntity1.prop14 must be a record',
@@ -124,7 +122,7 @@ module.exports = {
     prop15: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop15[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
@@ -137,11 +135,11 @@ module.exports = {
     prop16: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop16[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
-              .boolean(),
+              .boolean('TestEntity1.prop16[value][i] must be a boolean'),
             msg: 'TestEntity1.prop16[value] must be an array',
           }),
         msg: 'TestEntity1.prop16 must be a record',
@@ -150,34 +148,34 @@ module.exports = {
     prop17: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop17[key] must be a string'),
         schemaForValue: jdv
-          .object().keys({
+          .object('TestEntity1.prop17[value] must be an object').keys({
             prop1: jdv
-              .object().keys({
+              .object('TestEntity1.prop17[value].prop1 must be an object').keys({
                 p1: jdv
                   .number('TestEntity1.prop17[value].prop1.p1 must be a number')
                   .required('TestEntity1.prop17[value].prop1.p1 is required'),
                 p2: jdv
                   .array({
                     schema: jdv
-                      .boolean(),
+                      .boolean('TestEntity1.prop17[value].prop1.p2[i] must be a boolean'),
                     msg: 'TestEntity1.prop17[value].prop1.p2 must be an array',
                   })
                   .nullable(),
                 p3: jdv
                   .array({
                     schema: jdv
-                      .object().keys({
+                      .object('TestEntity1.prop17[value].prop1.p3[i] must be an object').keys({
                         p4: jdv
-                          .string()
+                          .string('TestEntity1.prop17[value].prop1.p3[i].p4 must be a string')
                           .required('TestEntity1.prop17[value].prop1.p3[i].p4 is required'),
                       }),
                     msg: 'TestEntity1.prop17[value].prop1.p3 must be an array',
                   })
                   .required('TestEntity1.prop17[value].prop1.p3 is required'),
                 p5: jdv
-                  .string()
+                  .string('TestEntity1.prop17[value].prop1.p5 must be a string')
                   .required('TestEntity1.prop17[value].prop1.p5 is required'),
               })
               .required('TestEntity1.prop17[value].prop1 is required'),
@@ -188,36 +186,36 @@ module.exports = {
     prop18: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop18[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
-              .object().keys({
+              .object('TestEntity1.prop18[value][i] must be an object').keys({
                 prop1: jdv
-                  .object().keys({
+                  .object('TestEntity1.prop18[value][i].prop1 must be an object').keys({
                     p1: jdv
                       .number('TestEntity1.prop18[value][i].prop1.p1 must be a number')
                       .required('TestEntity1.prop18[value][i].prop1.p1 is required'),
                     p2: jdv
                       .array({
                         schema: jdv
-                          .boolean(),
+                          .boolean('TestEntity1.prop18[value][i].prop1.p2[i] must be a boolean'),
                         msg: 'TestEntity1.prop18[value][i].prop1.p2 must be an array',
                       })
                       .nullable(),
                     p3: jdv
                       .array({
                         schema: jdv
-                          .object().keys({
+                          .object('TestEntity1.prop18[value][i].prop1.p3[i] must be an object').keys({
                             p4: jdv
-                              .string()
+                              .string('TestEntity1.prop18[value][i].prop1.p3[i].p4 must be a string')
                               .required('TestEntity1.prop18[value][i].prop1.p3[i].p4 is required'),
                           }),
                         msg: 'TestEntity1.prop18[value][i].prop1.p3 must be an array',
                       })
                       .required('TestEntity1.prop18[value][i].prop1.p3 is required'),
                     p5: jdv
-                      .string()
+                      .string('TestEntity1.prop18[value][i].prop1.p5 must be a string')
                       .required('TestEntity1.prop18[value][i].prop1.p5 is required'),
                   })
                   .required('TestEntity1.prop18[value][i].prop1 is required'),
@@ -230,11 +228,11 @@ module.exports = {
     prop19: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop19[key] must be a string'),
         schemaForValue: jdv
-          .object().keys({
+          .object('TestEntity1.prop19[value] must be an object').keys({
             p1: jdv
-              .string()
+              .string('TestEntity1.prop19[value].p1 must be a string')
               .required('TestEntity1.prop19[value].p1 is required'),
           }),
         msg: 'TestEntity1.prop19 must be a record',
@@ -243,13 +241,13 @@ module.exports = {
     prop20: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop20[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
-              .object().keys({
+              .object('TestEntity1.prop20[value][i] must be an object').keys({
                 p1: jdv
-                  .string()
+                  .string('TestEntity1.prop20[value][i].p1 must be a string')
                   .required('TestEntity1.prop20[value][i].p1 is required'),
               }),
             msg: 'TestEntity1.prop20[value] must be an array',
@@ -260,11 +258,11 @@ module.exports = {
     prop21: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop21[key] must be a string'),
         schemaForValue: jdv
           .record({
             schemaForKey: jdv
-              .string(),
+              .string('TestEntity1.prop21[value][key] must be a string'),
             schemaForValue: jdv
               .number('TestEntity1.prop21[value][value] must be a number'),
             msg: 'TestEntity1.prop21[value] must be a record',
@@ -275,13 +273,13 @@ module.exports = {
     prop22: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop22[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
               .record({
                 schemaForKey: jdv
-                  .string(),
+                  .string('TestEntity1.prop22[value][i][key] must be a string'),
                 schemaForValue: jdv
                   .number('TestEntity1.prop22[value][i][value] must be a number'),
                 msg: 'TestEntity1.prop22[value][i] must be a record',
@@ -304,7 +302,7 @@ module.exports = {
     prop25: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop25[key] must be a string'),
         schemaForValue: jdv
           .integer('TestEntity1.prop25[value] must be an integer'),
         msg: 'TestEntity1.prop25 must be a record',
@@ -313,7 +311,7 @@ module.exports = {
     prop26: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop26[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
@@ -336,7 +334,7 @@ module.exports = {
     prop29: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop29[key] must be a string'),
         schemaForValue: jdv
           .ISODateString('TestEntity1.prop29[value] must be a string in ISO date format'),
         msg: 'TestEntity1.prop29 must be a record',
@@ -345,7 +343,7 @@ module.exports = {
     prop30: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop30[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
@@ -368,7 +366,7 @@ module.exports = {
     prop33: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop33[key] must be a string'),
         schemaForValue: jdv
           .uuid('TestEntity1.prop33[value] must be a string representation of UUID'),
         msg: 'TestEntity1.prop33 must be a record',
@@ -377,7 +375,7 @@ module.exports = {
     prop34: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop34[key] must be a string'),
         schemaForValue: jdv
           .array({
             schema: jdv
@@ -392,7 +390,7 @@ module.exports = {
         schemaForKey: jdv
           .uuid('TestEntity1.prop35[key] must be a string representation of UUID'),
         schemaForValue: jdv
-          .string(),
+          .string('TestEntity1.prop35[value] must be a string'),
         msg: 'TestEntity1.prop35 must be a record',
       })
       .required('TestEntity1.prop35 is required'),
@@ -401,16 +399,16 @@ module.exports = {
         schemaForKey: jdv
           .ISODateString('TestEntity1.prop36[key] must be a string in ISO date format'),
         schemaForValue: jdv
-          .string(),
+          .string('TestEntity1.prop36[value] must be a string'),
         msg: 'TestEntity1.prop36 must be a record',
       })
       .required('TestEntity1.prop36 is required'),
     prop37: jdv
       .record({
         schemaForKey: jdv
-          .string(),
+          .string('TestEntity1.prop37[key] must be a string'),
         schemaForValue: jdv
-          .string(),
+          .string('TestEntity1.prop37[value] must be a string'),
         msg: 'TestEntity1.prop37 must be a record',
       })
       .required('TestEntity1.prop37 is required')
@@ -420,31 +418,31 @@ module.exports = {
         schema: jdv
           .record({
             schemaForKey: jdv
-              .string(),
+              .string('TestEntity1.prop38[i][key] must be a string'),
             schemaForValue: jdv
-              .string(),
+              .string('TestEntity1.prop38[i][value] must be a string'),
             msg: 'TestEntity1.prop38[i] must be a record',
           }),
         msg: 'TestEntity1.prop38 must be an array',
       })
       .required('TestEntity1.prop38 is required'),
     prop39: jdv
-      .string()
+      .string('TestEntity1.prop39 must be a string')
       .required('TestEntity1.prop39 is required')
       .nullable(),
     prop40: jdv
       .array({
         schema: jdv
-          .string(),
+          .string('TestEntity1.prop40[i] must be a string'),
         msg: 'TestEntity1.prop40 must be an array',
       })
       .required('TestEntity1.prop40 is required'),
     prop41: jdv
       .array({
         schema: jdv
-          .object().keys({
+          .object('TestEntity1.prop41[i] must be an object').keys({
             foo: jdv
-              .string()
+              .string('TestEntity1.prop41[i].foo must be a string')
               .required('TestEntity1.prop41[i].foo is required'),
             bar: jdv
               .number('TestEntity1.prop41[i].bar must be a number'),

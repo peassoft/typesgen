@@ -13,7 +13,7 @@ type TypeInfo = {
   type: string;
   format: string | null;
   referredEntity: Entity | null;
-}
+};
 
 export default class Generator {
   #entities: Set<Entity>;

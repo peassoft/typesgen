@@ -17,9 +17,8 @@ export default class Generator {
   }
 
   generate(): string {
-    let result = '\'use strict\';';
-    result += '\n\nconst jdv = require(\'js-data-validator\');';
-    result += '\n\nmodule.exports = {';
+    let result = 'import jdv from \'@peassoft/jdv\';';
+    result += '\n\nexport default {';
 
     for (const entity of this.#entities) {
       switch (entity.type) {
@@ -30,7 +29,7 @@ export default class Generator {
           if (!entity.public) continue;
 
           result += `\n${spaces(2)}${entity.name}: ` +
-            'jdv.object().keys({' +
+            `jdv.object('${entity.name} must be an object').keys({` +
             this.#generateObjectSchema(entity.members, 2, entity.name) +
             `\n${spaces(2)}}),`;
           break;
@@ -51,10 +50,10 @@ export default class Generator {
         result += `\n${spaces(indent)}.number('${path} must be a number')`;
         break;
       case ObjectMemberType.String:
-        result += `\n${spaces(indent)}.string()`;
+        result += `\n${spaces(indent)}.string('${path} must be a string')`;
         break;
       case ObjectMemberType.Boolean:
-        result += `\n${spaces(indent)}.boolean()`;
+        result += `\n${spaces(indent)}.boolean('${path} must be a boolean')`;
         break;
       case ObjectMemberType.Array:
         result += `\n${spaces(indent)}.array({`;
@@ -62,7 +61,7 @@ export default class Generator {
         result += `\n${spaces(indent)}})`;
         break;
       case ObjectMemberType.Object:
-        result += `\n${spaces(indent)}.object().keys({`;
+        result += `\n${spaces(indent)}.object('${path} must be an object').keys({`;
         result += this.#generateObjectSchema(item.members, indent, path);
         result += `\n${spaces(indent)}})`;
         break;
@@ -88,12 +87,12 @@ export default class Generator {
 
         switch (referredEntity.type) {
           case EntityType.Object:
-            result += `\n${spaces(indent)}.object().keys({`;
+            result += `\n${spaces(indent)}.object('${path} must be an object').keys({`;
             result += this.#generateObjectSchema(referredEntity.members, indent, path);
             result += `\n${spaces(indent)}})`;
             break;
           case EntityType.Enum:
-            result += `\n${spaces(indent)}.string()`;
+            result += `\n${spaces(indent)}.string('${path} must be a string')`;
         }
 
         break;

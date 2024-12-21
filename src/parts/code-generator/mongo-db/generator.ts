@@ -12,7 +12,7 @@ import {
 type TypeInfo = {
   type: string;
   referredEntity: Entity | null;
-}
+};
 
 export default class Generator {
   #entities: Set<Entity>;
