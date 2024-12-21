@@ -22,7 +22,7 @@ export default class Generator {
   }
 
   generate(): string {
-    let result = '\'use strict\';\n\n' + 'module.exports = {';
+    let result = 'export default {';
 
     for (const entity of this.#entities) {
       switch (entity.type) {
