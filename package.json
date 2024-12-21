@@ -1,6 +1,6 @@
 {
   "name": "@peassoft/typesgen",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A tool for building OpenAPI declarations, MongoDB schemas, and JDV validation rules from TypeScript type definitions",
   "author": "Peassoft",
   "license": "ISC",
