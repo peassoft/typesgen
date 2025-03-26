@@ -4,14 +4,11 @@
   "description": "A tool for building OpenAPI declarations, MongoDB schemas, and JDV validation rules from TypeScript type definitions",
   "author": "Peassoft",
   "license": "ISC",
-  "repository": "git://github.com/peassoft/typesgen.git",
-  "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "typings": "./dist/esm/index.d.ts",
-  "bin": {
-    "typesgen": "./dist/cjs/bin/index.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peassoft/typesgen.git"
   },
+  "type": "module",
   "exports": {
     ".": {
       "import": {
@@ -23,6 +20,9 @@
         "default": "./dist/cjs/index.js"
       }
     }
+  },
+  "bin": {
+    "typesgen": "./dist/cjs/bin/index.js"
   },
   "files": [
     "dist"
@@ -38,7 +38,7 @@
     "test": "eslint ./ && npm run tsc && NODE_OPTIONS=--experimental-vm-modules jest ./src",
     "test:integration": "NODE_OPTIONS=--experimental-vm-modules jest ./test/integration",
     "tsc": "tsc --noEmit",
-    "build": "rm -rf dist && tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json && bash fixup.sh && api-extractor run --local --verbose"
+    "build": "rm -rf dist && tsc -p tsconfig-cjs.json && tsc -p tsconfig-esm.json && bash fixup.sh && api-extractor run --local --verbose && publint --strict"
   },
   "jest": {
     "verbose": false,
@@ -68,6 +68,7 @@
     "@types/node": "^20.10.3",
     "eslint": "^9.17.0",
     "jest": "^29.4.3",
+    "publint": "^0.3.9",
     "ts-jest": "^29.0.5",
     "tsx": "^4.6.2",
     "typescript": "^5.1.6"
